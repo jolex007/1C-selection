@@ -113,7 +113,7 @@ def main():
         courses_to_take.append(course_set)
     
 
-    courses_to_take = sorted(courses_to_take, key=lambda x: (len(x), len(x) > min_courses_per_term * (3 if bachelor else 5)))
+    courses_to_take = sorted(courses_to_take, key=lambda x: (len(x) ,len(x) > min_courses_per_term * (3 if bachelor else 5), len(set(x).intersection(set(priority_courses)))))
 
     if len(courses_to_take[0]) < min_courses_per_term * (3 if bachelor else 5):
         print("You can't choose plan :(")
